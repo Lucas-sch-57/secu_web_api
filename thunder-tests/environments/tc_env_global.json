@@ -1,0 +1,19 @@
+{
+    "_id": "6eb30d85-2a4e-4a66-9549-6b29c557c60e",
+    "name": "(Global Env)",
+    "default": false,
+    "global": true,
+    "sortNum": -2,
+    "created": "2023-07-05T07:04:21.862Z",
+    "modified": "2023-07-05T07:04:21.862Z",
+    "data": [
+        {
+            "name": "jwt",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTQwNzFmNzYzZDZmMDQ2MWI0MWNkZSIsImlhdCI6MTY4ODY0ODA1MH0.L8gD8wAcaf6ipjboyHR6Q1RRs63SB9lN45O9LMezl_M"
+        },
+        {
+            "name": "postId",
+            "value": "64a6b7b63e34cf7e0f97db68"
+        }
+    ]
+}

@@ -1,0 +1,86 @@
+{
+    "_id": "a3f4f843-94b6-4625-921a-75258e5f7981",
+    "colName": "Posts",
+    "created": "2023-07-05T07:01:25.934Z",
+    "sortNum": 20000,
+    "folders": [],
+    "requests": [
+        {
+            "_id": "b2deceff-d6d8-4241-84a1-4f0eda9b9779",
+            "colId": "a3f4f843-94b6-4625-921a-75258e5f7981",
+            "containerId": "",
+            "name": "createPost",
+            "url": "http://localhost:3001/api/posts/",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-07-05T07:01:34.429Z",
+            "modified": "2023-07-06T12:54:32.114Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"Post n°5\",\n  \"content\": \"Contenu un peu long Contenu un peu long Contenu un peu long Contenu un peu long Contenu un peu longContenu un peu long Contenu un peu long Contenu un peu long Contenu un peu long Contenu un peu long Contenu un peu long Contenu un peu long\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{jwt}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "3315607a-2123-4ed3-ae7c-d47551bbfaa2",
+            "colId": "a3f4f843-94b6-4625-921a-75258e5f7981",
+            "containerId": "",
+            "name": "getAllPosts",
+            "url": "http://localhost:3001/api/posts",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-07-05T07:23:41.810Z",
+            "modified": "2023-07-05T07:24:10.976Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{jwt}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "ebcf3bfd-955a-4a81-96e0-c38297ff04dc",
+            "colId": "a3f4f843-94b6-4625-921a-75258e5f7981",
+            "containerId": "",
+            "name": "like",
+            "url": "http://localhost:3001/api/posts/{{postId}}/like",
+            "method": "PATCH",
+            "sortNum": 30000,
+            "created": "2023-07-06T12:02:48.413Z",
+            "modified": "2023-07-06T12:05:04.948Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{jwt}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "e7bbce1e-ef22-460b-9d2c-52c909dca109",
+            "colId": "a3f4f843-94b6-4625-921a-75258e5f7981",
+            "containerId": "",
+            "name": "delete",
+            "url": "http://localhost:3001/api/posts/{{postId}}",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2023-07-06T14:39:31.783Z",
+            "modified": "2023-07-06T14:40:08.585Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{jwt}}"
+            },
+            "tests": []
+        }
+    ]
+}

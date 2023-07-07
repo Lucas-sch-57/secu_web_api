@@ -1,0 +1,47 @@
+{
+    "_id": "f7d22a1e-b524-4589-a31a-a693388421aa",
+    "colName": "User",
+    "created": "2023-07-04T08:48:26.731Z",
+    "sortNum": 10000,
+    "folders": [],
+    "requests": [
+        {
+            "_id": "f3f6553a-de31-49c6-8464-a8ffbc632395",
+            "colId": "f7d22a1e-b524-4589-a31a-a693388421aa",
+            "containerId": "",
+            "name": "UserRegister",
+            "url": "http://localhost:3001/api/auth/register",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-07-04T08:48:40.715Z",
+            "modified": "2023-07-04T09:08:57.986Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\": \"Test Api\",\n  \"password\": \"1234\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "1174c4f3-25d3-4f03-82c4-7ac234bea24d",
+            "colId": "f7d22a1e-b524-4589-a31a-a693388421aa",
+            "containerId": "",
+            "name": "UserLogin",
+            "url": "http://localhost:3001/api/auth/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-07-04T08:53:33.343Z",
+            "modified": "2023-07-06T12:54:10.086Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\":\"Lucas\",\n  \"password\":\"Acdlfm6556\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
