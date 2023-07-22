@@ -1,4 +1,4 @@
-const { createComment, getByPostId } = require('../services/commentService');
+const { createComment, getByPostId, deleteComment } = require('../services/commentService');
 
 const create = (req, res) => {
     const { content, post } = req.body;
@@ -13,4 +13,10 @@ const getbypost = (req, res) => {
         .catch(error => res.status(500).json({ message: error.message }));
 }
 
-module.exports = { create, getbypost };
+const deleteOne = (req, res) => {
+    deleteComment(req.params.id)
+        .then(comment => res.status(200).json({ comment }))
+        .catch(error => res.status(500).json({ message: error.message }));
+}
+
+module.exports = { create, getbypost, deleteOne };

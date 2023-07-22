@@ -48,6 +48,25 @@ class UserStore {
         })
     }
 
+    changeUsername = async (username) => {
+        axios.patch('http://localhost:3001/api/user/username-change/', { username }).then(response => {
+            this.user = response.data.token
+            localStorage.setItem('token', response.data.token)
+        }).catch(error => {
+            console.log(error)
+        })
+    }
+
+    changePassword = async (password) => {
+        axios.put('http://localhost:3001/api/user/password-change/', { password }).then(response => {
+            this.user = response.data.token
+            localStorage.removeItem('token', response.data.token)
+        }).catch(error => {
+            console.log(error)
+        })
+    }
+
+
     get isLoggedIn() {
         return !!this.user
     }

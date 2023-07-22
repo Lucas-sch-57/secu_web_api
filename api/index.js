@@ -13,6 +13,7 @@ const dbConnect = require('./mongo/mongoose');
 const authRoutes = require('./routes/authRouter');
 const postRoutes = require('./routes/postRouter');
 const commentRoutes = require('./routes/commentRouter');
+const userRoutes = require('./routes/userRouter');
 //Uses
 app.use(cors());
 app.use(cors({
@@ -29,6 +30,7 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 app.use('/api/auth', authRoutes);
+app.use('/api/user', userRoutes)
 app.use('/api/posts', postRoutes);
 app.use('/api/comments', commentRoutes);
 

@@ -7,10 +7,10 @@ import { observer } from 'mobx-react';
 import { EditPencil, Trash, ThumbsUp, ThumbsDown } from 'iconoir-react'
 import { commentContext } from '../stores/CommentStore';
 import { useRef } from 'react';
-import { toJS } from 'mobx'
 import jwt_decode from "jwt-decode";
+import { useNavigate } from 'react-router-dom';
 export const Post = observer(() => {
-
+    const navigate = useNavigate()
     const { postId } = useParams();
     //Stores
     const postStore = useContext(postContext)
@@ -36,6 +36,12 @@ export const Post = observer(() => {
 
     const handleDeletePost = (postId) => {
         postStore.deletePost(postId)
+        navigate('/posts')
+
+    }
+
+    const handleClickCommentDelete = (commentId) => {
+        commentStore.deleteComment(commentId)
     }
 
 
@@ -46,7 +52,7 @@ export const Post = observer(() => {
                     <>
                         <div className='flex justify-between'>
                             <h1 className='text-3xl text-primary'>{postStore.post.title}</h1>
-                            {postStore.post.user._id === userId && (
+                            {postStore.post.user === userId && (
                                 <div className='flex gap-5'>
                                     <button className='btn btn-xs btn-error' onClick={() => handleDeletePost(postStore.post._id)}>
                                         <Trash />
@@ -87,19 +93,18 @@ export const Post = observer(() => {
                         <div className='mt-5 flex flex-col gap-5 max-h-[80vh] overflow-auto'>
                             {commentStore.comments && commentStore.comments.map((comment, index) => (
                                 <div key={index} className='p-5 rounded-lg bg-slate-900'>
-                                    {console.log(toJS(comment))}
                                     <div className='flex justify-between'>
                                         <h3 className='text-primary'>{comment.user.username}</h3>
                                         <div className='flex flex-col items-center gap-5'>
                                             {
-                                                comment.user._id === userId && (
-                                                    <button className='btn btn-xs btn-error' >
+                                                comment.user === userId && (
+                                                    <button className='btn btn-xs btn-error' onClick={() => handleClickCommentDelete(comment._id)}>
                                                         <Trash />
                                                         Supprimer
                                                     </button>
                                                 )
                                             }
-                                            {comment.user._id != userId && (
+                                            {comment.user != userId && (
                                                 <div className='flex gap-5'>
                                                     <button className='btn btn-xs btn-success'>
                                                         <ThumbsUp />

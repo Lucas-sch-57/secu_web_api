@@ -5,15 +5,15 @@ const createPost = (post) => {
 }
 
 const getMyPosts = (id) => {
-    return Post.find({ user: id }).populate('user');
+    return Post.find({ user: id });
 }
 
 const getPostById = (id) => {
-    return Post.findById(id).populate('user');
+    return Post.findById(id);
 }
 
 const getAllPosts = () => {
-    return Post.find().populate('user');
+    return Post.find();
 }
 
 const deletePostById = (id) => {
@@ -21,7 +21,7 @@ const deletePostById = (id) => {
 }
 
 const updatePostById = (id, post) => {
-    return Post.findByIdAndUpdate(id, { ...post }, { new: true }).populate('user');
+    return Post.findByIdAndUpdate(id, { ...post }, { new: true });
 }
 
 const likePostById = (id, userId) => {

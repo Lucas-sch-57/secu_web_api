@@ -9,6 +9,7 @@ import axios from 'axios'
 import { Posts } from './pages/Posts.jsx'
 import { Post } from './pages/Post.jsx'
 import ProtectedRoute from './components/ProtectedRoute.jsx'
+import { Profile } from './pages/Profile.jsx'
 
 axios.interceptors.request.use(
   config => {
@@ -37,6 +38,13 @@ const router = createBrowserRouter([
         element:
           <ProtectedRoute >
             <Posts />
+          </ProtectedRoute>
+      },
+      {
+        path: '/profile',
+        element:
+          <ProtectedRoute>
+            <Profile />
           </ProtectedRoute>
       },
       {

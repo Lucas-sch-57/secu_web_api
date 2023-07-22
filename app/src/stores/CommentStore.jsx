@@ -39,6 +39,24 @@ class CommentStore {
         }
     }
 
+    deleteComment = async (id) => {
+        try {
+            await axios.delete("http://localhost:3001/api/comments/" + id)
+                .then(() => {
+                    this.success = true;
+                    this.comments = this.comments.filter(comment => comment._id !== id)
+                    setTimeout(() => {
+                        this.success = false;
+                    }, 3000);
+                })
+                .catch(error => {
+                    console.log(error.message)
+                });
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
 }
 
 const commentStore = new CommentStore()

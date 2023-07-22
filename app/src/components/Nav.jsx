@@ -40,26 +40,44 @@ export const Nav = observer(() => {
                                 </NavLink>
                             )}
                         </li>
+                        <li>
+                            <NavLink to="/profile" className="flex items-center gap-2">
+                                <User />
+                                Profil
+                            </NavLink>
+                        </li>
                     </ul>
                 </div>
                 <a className="btn btn-ghost normal-case text-xl">WishTwitter</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 gap-5">
-                    <NavLink to="/" className="flex items-center gap-2">
-                        <HomeSimple />
-                        Accueil
-                    </NavLink>
-                    <NavLink to="/posts" className="flex items-center gap-2">
-                        <Archive />
-                        Posts
-                    </NavLink>
-                    {!userStore.isLoggedIn && (
-                        <NavLink to="/register" className="flex items-center gap-2">
-                            <User />
-                            Inscription
+                    <li>
+                        <NavLink to="/" className="flex items-center gap-2">
+                            <HomeSimple />
+                            Accueil
                         </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/posts" className="flex items-center gap-2">
+                            <Archive />
+                            Posts
+                        </NavLink>
+                    </li>
+                    {!userStore.isLoggedIn && (
+                        <li>
+                            <NavLink to="/register" className="flex items-center gap-2">
+                                <User />
+                                Inscription
+                            </NavLink>
+                        </li>
                     )}
+                    <li>
+                        <NavLink to="/profile" className="flex items-center gap-2">
+                            <User />
+                            Profil
+                        </NavLink>
+                    </li>
                 </ul>
             </div>
             <div className="navbar-end">
@@ -69,10 +87,12 @@ export const Nav = observer(() => {
                         Déconnexion
                     </a>
                 ) : (
-                    <NavLink className="btn btn-xs btn-primary" to='/login'>
-                        <LogIn />
-                        Connexion
-                    </NavLink>
+                    <li>
+                        <NavLink className="btn btn-xs btn-primary" to='/login'>
+                            <LogIn />
+                            Connexion
+                        </NavLink>
+                    </li>
                 )}
             </div>
         </div >

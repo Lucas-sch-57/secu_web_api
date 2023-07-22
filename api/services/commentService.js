@@ -5,8 +5,11 @@ const createComment = (comment) => {
 }
 
 const getByPostId = (id) => {
-    return Comment.find({ post: id }).populate('user');
+    return Comment.find({ post: id }).populate('user', 'username _id');
 }
 
+const deleteComment = (id) => {
+    return Comment.findByIdAndDelete(id);
+}
 
-module.exports = { createComment, getByPostId };
+module.exports = { createComment, getByPostId, deleteComment };

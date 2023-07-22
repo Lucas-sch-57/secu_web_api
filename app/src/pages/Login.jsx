@@ -1,4 +1,4 @@
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { userContext } from "../stores/UserStore";
 import { useNavigate } from 'react-router-dom';
 export const Login = () => {
@@ -13,6 +13,10 @@ export const Login = () => {
 
         if (!userStore.user) navigate('/');
     }
+
+    useEffect(() => {
+        if (userStore.user) navigate('/');
+    }, [userStore.user, navigate])
 
 
     return (

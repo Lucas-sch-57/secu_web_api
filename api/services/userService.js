@@ -10,4 +10,9 @@ const createUser = (user) => {
 const getUserById = (id) => {
     return User.findById(id);
 }
-module.exports = { getUserByUsername, createUser, getUserById };
+
+const updateUser = (id, user) => {
+    return User.findByIdAndUpdate(id, user, { new: true });
+}
+
+module.exports = { getUserByUsername, createUser, getUserById, updateUser };

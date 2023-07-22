@@ -1,6 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import axios from "axios";
 import { createContext } from "react";
+import { toJS } from "mobx";
 class PostStore {
     posts = [];
     post = null;
@@ -79,6 +80,21 @@ class PostStore {
         }
     }
 
+    createPost = async (post) => {
+        try {
+            await axios.post("http://localhost:3001/api/posts/", post)
+                .then(response => {
+                    this.posts.push(response.data.post)
+                    console.log(toJS(this.posts))
+
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
 
     deletePost = async (id) => {
